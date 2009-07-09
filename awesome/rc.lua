@@ -60,8 +60,7 @@ floatapps =
 apptags =
 {
     -- ["Firefox"] = { screen = 1, tag = 2 },
-    -- ["mocp"] = { screen = 2, tag = 4 },
-    ["mutt"] = { screen = 4, tag = 2 }, 
+    ["Pidgin"] = { screen = 1, tag = 4 }, 
 }
 
 -- Autorun programs
@@ -85,7 +84,7 @@ use_titlebar = false
 -- {{{ Tags
 -- Define tags table.
 tags = {}
-tags_names = {"Web", "Code", "VM", "Email"}
+tags_names = {"web", "dev", "vm", "media"}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
     tags[s] = {}
@@ -107,23 +106,6 @@ mytextbox = widget({ type = "textbox", align = "right" })
 -- Set the default text in textbox
 --mytextbox.text = "<b><small> " .. awesome.release .. " </small></b>"
 mytextbox.text = getTime()
-
--- Create a laucher widget and a main menu
-myawesomemenu = {
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
-   { "restart", awesome.restart },
-   { "quit", awesome.quit }
-}
-
-mymainmenu = awful.menu.new({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                        { "open terminal", terminal },
-                                        { "browser", browser },
-                                      }
-                            })
-
-mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
-                                     menu = mymainmenu })
 
 -- Help widgets
 separator = widget({ type = "textbox", align = "right" })
@@ -200,16 +182,16 @@ for s = 1, screen.count() do
     -- Create the wibox
     mywibox[s] = wibox({ position = "top", fg = beautiful.fg_normal, bg = beautiful.bg_normal })
     -- Add widgets to the wibox - order matters
-    mywibox[s].widgets = { mylauncher,
-                           mytaglist[s],
+    mywibox[s].widgets = { mytaglist[s],
                            mytasklist[s],
                            mypromptbox[s],
                            mytextbox,
                            separator,
                            battery,
                            spacer,
+                           s == 1 and mysystray or nil,
                            mylayoutbox[s],
-                           s == 1 and mysystray or nil }
+                           }
     mywibox[s].screen = s
 end
 -- }}}
@@ -352,7 +334,7 @@ awful.hooks.focus.register(function (c)
     if not awful.client.ismarked(c) then
         c.border_color = beautiful.border_focus
     end
-    c.opacity = 0.95;
+    c.opacity = 0.90;
 end)
 
 -- Hook function to execute when unfocusing a client.
@@ -360,10 +342,10 @@ awful.hooks.unfocus.register(function (c)
     if not awful.client.ismarked(c) then
         c.border_color = beautiful.border_normal
     end
-    c.opacity = 0.85;
+    c.opacity = 0.75;
 end)
 
--- Hook function to remove opacity on fullscreen
+-- Hook function to execute when fullscreening a client
 awful.hooks.property.register(function (c,prop)
     if c.fullscreen then
         c.opacity = 1

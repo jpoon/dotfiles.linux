@@ -52,6 +52,8 @@ alias pacman="sudo pacman"
 alias su='su -'
 alias du="du -h"
 alias df="df -h"
+
+export PATH=/usr/local/bin:$PATH
 #--------------------
 # History
 #-------------------

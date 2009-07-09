@@ -1,0 +1,40 @@
+!--------------------------
+!xterm
+!--------------------------
+
+xterm*faceName:         Lucida\ Console 
+xterm*faceSize:         10 
+xterm*scrollBar:        false
+xterm*colorBDMode:      true
+xterm*boldMode:         on
+xterm*alwaysBoldMode:   false
+xterm*dynamicColors:    on
+xterm*colorMode:        on
+
+xterm*foreground:       #d3d3d3
+xterm*background:       #000000
+xterm*cursorColor:      orange
+!black
+XTerm*color0:       #000000
+XTerm*color8:       #666666
+!red
+XTerm*color1:       #9e1828
+XTerm*color9:       #cf6171
+!green
+XTerm*color2:       #aece92
+XTerm*color10:      #c5f779
+!yellow
+XTerm*color3:       #968a38
+XTerm*color11:      #fff796
+!blue
+XTerm*color4:       #414171
+XTerm*color12:      #4186be
+!magenta
+XTerm*color5:       #96c359
+XTerm*color13:      #cf9ebe
+!cyan
+XTerm*color6:       #418179
+XTerm*color14:      #71bebe
+!white
+XTerm*color7:       #bebebe
+XTerm*color15:      #ffffff 
