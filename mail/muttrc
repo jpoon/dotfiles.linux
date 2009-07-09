@@ -1,0 +1,87 @@
+#set imap_user = "mr.j.poon@gmail.com"
+#set imap_pass = "alberta1"
+#set smtp_url = "smtp://mr.j.poon@smtp.gmail.com:587/"
+#set smtp_pass = "alberta1"
+#set from = "mr.j.poon@gmail.com"
+#set folder = "imaps://imap.gmail.com:993"
+
+set mbox_type = Maildir
+set folder = $HOME/Mail/mr.j.poon@gmail.com
+set spoolfile = "+/INBOX"
+set record = "+/Mutt-Sent"
+set postponed = "+/Mutt-Drafts"
+
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+set realname = "Jason Poon"
+set sendmail = "/usr/bin/msmtp"
+
+set edit_headers = yes
+set move = no           # Move read messages to another folder?
+
+set sort = threads
+set sort_aux = last-date-received
+
+macro index gi "<change-folder> =INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder> =[Gmail].All<tab><enter>" "Go to all mail"
+
+#------------------------------------------------------------------------------
+# Headers.
+#------------------------------------------------------------------------------
+# Display only some selected headers.
+ignore *
+unignore from: date: subject: to: cc: reply-to: posted-to: newsgroups:
+
+# Set the display order of the headers.
+hdr_order From: To: Cc: Reply-To: Subject: Date:
+
+#------------------------------------------------------------------------------
+# Colors.
+#------------------------------------------------------------------------------
+color status     brightgreen   blue
+color tree       red           default
+color markers    brightred     default
+color tilde      blue          default
+color indicator  black         cyan
+
+color index      cyan          default "!~R"
+color index      brightcyan    default "~T"
+color index      brightgreen   default "~p"
+color index      brightgreen   default ".*Uwe Hermann.*"
+color index      red           default ~D
+
+color hdrdefault brightyellow  default
+
+color header     brightmagenta default ^Subject:
+color header     brightwhite   default ^X-Mailer:
+color header     brightwhite   default ^User-Agent:
+color header     brightgreen   default ^From:
+color header     brightgreen   default ^Reply-To:
+color header     brightgreen   default ^To:
+color header     brightgreen   default ^Cc:
+color header     brightgreen   default ^Bcc:
+color header     brightgreen   default ^Delivered-To:
+
+color body       brightwhite   default (http|ftp)://[\-\.\,/%~_:?\#a-zA-Z0-9]+
+color body       brightyellow  default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body       brightmagenta default ^Subject:
+color body       yellow        default "[;:]-[)/(|]"  # Colorise smileys
+
+color quoted     brightcyan    default
+color quoted1    cyan          default
+color quoted2    brightcyan    default
+color quoted3    cyan          default
+color quoted4    brightcyan    default
+color quoted5    cyan          default
+
+color signature  cyan          default
+color attachment green         default
+
+color body       brightyellow  black   "^Good signature"
+color body       brightwhite   red     "^Bad signature from.*"
+
+color body       brightwhite   default "(http|ftp|news|telnet|finger|mailto)://[^ \"\t\r\n]*"
+color body       brightyellow  default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
