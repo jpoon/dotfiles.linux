@@ -260,7 +260,16 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end)
+              end),
+
+    -- Multimedia Keys
+    awful.key({}, "XF86AudioPlay", function() audio("play") end),
+    awful.key({}, "XF86AudioStop", function() audio("stop") end),
+    awful.key({}, "XF86AudioNext", function() audio("next") end),
+    awful.key({}, "XF86AudioPrev", function() audio("prev") end),
+    awful.key({}, "XF86AudioRaiseVolume", function () volume("up") end),
+    awful.key({}, "XF86AudioLowerVolume", function () volume("down") end),
+    awful.key({}, "XF86AudioMute", function() volume("mute") end)
 )
 
 -- Client awful tagging: this is useful to tag some clients and then do stuff like move to tag on them
@@ -334,7 +343,7 @@ awful.hooks.focus.register(function (c)
     if not awful.client.ismarked(c) then
         c.border_color = beautiful.border_focus
     end
-    c.opacity = 0.90;
+    c.opacity = 0.95;
 end)
 
 -- Hook function to execute when unfocusing a client.
@@ -342,7 +351,7 @@ awful.hooks.unfocus.register(function (c)
     if not awful.client.ismarked(c) then
         c.border_color = beautiful.border_normal
     end
-    c.opacity = 0.75;
+    c.opacity = 0.80;
 end)
 
 -- Hook function to execute when fullscreening a client

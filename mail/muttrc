@@ -16,6 +16,7 @@ set message_cachedir =~/.mutt/cache/bodies
 set certificate_file =~/.mutt/certificates
 
 set realname = "Jason Poon"
+set from = "mr.j.poon@gmail.com"
 set sendmail = "/usr/bin/msmtp"
 
 set edit_headers = yes
