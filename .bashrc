@@ -54,6 +54,7 @@ alias du="du -h"
 alias df="df -h"
 
 export PATH=/usr/local/bin:$PATH
+
 #--------------------
 # History
 #-------------------
@@ -61,6 +62,9 @@ export HISTIGNORE="&:[ ]*:ls:cd:clear:exit"
 export HISTCONTROL="ignoreboth"
 export HISTFILESIZE=250
 
+#--------------------
+# Prompt
+#-------------------
 PS1="[${UC}\u@\h \W${NONE}]\$ "
 
 case "$TERM" in

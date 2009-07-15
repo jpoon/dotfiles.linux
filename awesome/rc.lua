@@ -269,7 +269,11 @@ globalkeys = awful.util.table.join(
     awful.key({}, "XF86AudioPrev", function() audio("prev") end),
     awful.key({}, "XF86AudioRaiseVolume", function () volume("up") end),
     awful.key({}, "XF86AudioLowerVolume", function () volume("down") end),
-    awful.key({}, "XF86AudioMute", function() volume("mute") end)
+    awful.key({}, "XF86AudioMute", function() volume("mute") end),
+
+    --    awful.key({}, "XF86ScreenSaver", 
+    awful.key({}, "XF86Sleep", function() awful.util.spawn("sudo pm-suspend") end),
+    awful.key({}, "XF86Suspend", function() awful.util.spawn("sudo pm-hibernate") end)
 )
 
 -- Client awful tagging: this is useful to tag some clients and then do stuff like move to tag on them

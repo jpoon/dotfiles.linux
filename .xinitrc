@@ -10,7 +10,6 @@
 # ...or the Window Manager of your choice
 
 xcompmgr -cC -r5 -o0.4 -l0 -t0 &
-xbindkeys &
 
 DEFAULT_SESSION=awesome
 case $1 in
