@@ -46,7 +46,7 @@ function getBatteryInfo(adapter)
     local percent
     percent = math.floor(current_cap/full_cap*100)
 
-    if percent < 25 then
+    if percent < 10 then
         percentStr = setFg("red", percent .. "%")
     elseif percent < 50 then
         percentStr = setFg("orange", percent .. "%")
