@@ -57,8 +57,9 @@ export PATH=/usr/local/bin:$PATH
 #--------------------
 # History
 #-------------------
-export HISTIGNORE="ls:cd:clear:exit"
+export HISTIGNORE="&:[ ]*:ls:cd:clear:exit"
 export HISTCONTROL="ignoreboth"
+export HISTFILESIZE=250
 
 PS1="[${UC}\u@\h \W${NONE}]\$ "
 
