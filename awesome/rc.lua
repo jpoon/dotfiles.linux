@@ -84,7 +84,7 @@ use_titlebar = false
 -- {{{ Tags
 -- Define tags table.
 tags = {}
-tags_names = {"web", "dev", "vm", "media"}
+tags_names = {"web", "dev", "media", "mail"}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
     tags[s] = {}
@@ -467,7 +467,7 @@ awful.hooks.timer.register(60, function ()
 end)
 
 -- {{{ Battery hook
-awful.hooks.timer.register(15, function ()
+awful.hooks.timer.register(30, function ()
     battery.text = getBatteryInfo(batteryAdapter)
 end)
 -- }}}

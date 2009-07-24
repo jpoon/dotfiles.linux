@@ -9,10 +9,10 @@ metadata = ~/Mail/.offlineimap
 accounts = mr.j.poon
 maxsyncaccounts = 1
 
-# Cursors.Blinkenlights - text-based (terminal) interface
+# Curses.Blinkenlights - text-based (terminal) interface
 # Noninteractive.Basic
 # Noninteractive.Quiet - Noninteractive interface, generates no output except for errors 
-ui = Noninteractive.Quiet 
+ui = Noninteractive.Basic 
  
 # ---------------------------------
 # Accounts
