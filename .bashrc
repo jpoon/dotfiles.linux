@@ -41,6 +41,7 @@ UC=$W                       # user's color
 # Alias
 # --------------------
 alias ls='ls -h --color=tty --group-directories-first'
+alias l='ls'
 alias grep='grep --color'
 alias mkdir='mkdir -p'
 alias vi='vim'
