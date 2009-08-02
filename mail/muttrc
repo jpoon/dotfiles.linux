@@ -1,15 +1,8 @@
-#set imap_user = "mr.j.poon@gmail.com"
-#set imap_pass = "alberta1"
-#set smtp_url = "smtp://mr.j.poon@smtp.gmail.com:587/"
-#set smtp_pass = "alberta1"
-#set from = "mr.j.poon@gmail.com"
-#set folder = "imaps://imap.gmail.com:993"
-
 set mbox_type = Maildir
 set folder = $HOME/Mail/mr.j.poon@gmail.com
 set spoolfile = "+/INBOX"
-set record = "+/Mutt-Sent"
-set postponed = "+/Mutt-Drafts"
+set record = "+/[GMAIL].Sent Mail"
+set postponed = "+/[GMAIL].Drafts"
 
 set header_cache =~/.mutt/cache/headers
 set message_cachedir =~/.mutt/cache/bodies
