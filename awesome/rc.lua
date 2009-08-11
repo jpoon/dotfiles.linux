@@ -55,11 +55,11 @@ floatapps =
     -- ["mocp"] = true
 }
 
+
 -- Applications to be moved to a pre-defined tag by class or instance.
 -- Use the screen and tags indices.
 apptags =
 {
-    -- ["Firefox"] = { screen = 1, tag = 2 },
     ["Pidgin"] = { screen = 1, tag = 4 }, 
 }
 
@@ -107,7 +107,6 @@ mytextbox = widget({ type = "textbox", align = "right" })
 --mytextbox.text = "<b><small> " .. awesome.release .. " </small></b>"
 mytextbox.text = getTime()
 
--- Help widgets
 separator = widget({ type = "textbox", align = "right" })
 separator.text = " | "
 
