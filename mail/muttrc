@@ -4,9 +4,10 @@ set spoolfile = "+/INBOX"
 set record = "+/[GMAIL].Sent Mail"
 set postponed = "+/[GMAIL].Drafts"
 
-set header_cache =~/.mutt/cache/headers
-set message_cachedir =~/.mutt/cache/bodies
-set certificate_file =~/.mutt/certificates
+set header_cache =      ~/.mutt/cache/headers
+set message_cachedir =  ~/.mutt/cache/bodies
+set certificate_file =  ~/.mutt/certificates
+set mailcap_path =      ~/.mutt/.mailcap
 
 set realname = "Jason Poon"
 set from = "mr.j.poon@gmail.com"
@@ -18,6 +19,9 @@ set move = no           # Move read messages to another folder?
 set sort = threads
 set sort_aux = last-date-received
 
+#------------------------------------------------------------------------------
+# Shortcuts.
+#------------------------------------------------------------------------------
 macro index gi "<change-folder> =INBOX<enter>" "Go to inbox"
 macro index ga "<change-folder> =[Gmail].All<tab><enter>" "Go to all mail"
 
