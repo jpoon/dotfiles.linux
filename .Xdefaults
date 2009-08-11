@@ -38,3 +38,48 @@ XTerm*color14:      #71bebe
 !white
 XTerm*color7:       #bebebe
 XTerm*color15:      #ffffff 
+
+!--------------------------
+!urxvt
+!--------------------------
+URxvt*buffered:             true
+URxvt*font:                 xft:DejaVu Sans Mono:pixelsize=13
+URxvt*highlightSelection:   true
+
+!scroll
+URxvt*scrollBar:            false
+URxvt*scrollBar_right:      true
+
+!colors
+URxvt*foreground:       #d3d3d3
+URxvt*background:       #000000
+URxvt*cursorColor:      orange
+!black
+URxvt*color0:           #000000
+URxvt*color8:           #666666
+!red
+URxvt*color1:           #9e1828
+URxvt*color9:           #cf6171
+!green
+URxvt*color2:           #aece92
+URxvt*color10:          #c5f779
+!yellow
+URxvt*color3:           #968a38
+URxvt*color11:          #fff796
+!blue
+URxvt*color4:           #414171
+URxvt*color12:          #4186be
+!magenta
+URxvt*color5:           #96c359
+URxvt*color13:          #cf9ebe
+!cyan
+URxvt*color6:           #418179
+URxvt*color14:          #71bebe
+!white
+URxvt*color7:           #bebebe
+URxvt*color15:          #ffffff 
+
+URxvt*perl-ext.common:  default,matcher
+URxvt*urlLauncher:      /usr/bin/firefox
+URxvt*matcher.button:   1
+
