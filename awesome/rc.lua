@@ -19,7 +19,7 @@ beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
 browser = "firefox"
-terminal = "xterm"
+terminal = "urxvt"
 batteryAdapter = "BAT0"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
