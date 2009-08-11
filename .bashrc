@@ -23,7 +23,6 @@ EMM="\[\e[1;35m\]"
 EMC="\[\e[1;36m\]"
 EMW="\[\e[1;37m\]"
 
-# background colors
 BGK="\[\e[40m\]"
 BGR="\[\e[41m\]"
 BGG="\[\e[42m\]"
@@ -37,7 +36,18 @@ BGW="\[\e[47m\]"
 UC=$W                       # user's color
 [ $UID -eq "0" ] && UC=$R   # root's color
 
-# -------------------
+# --------------------
+# Color man pages
+#---------------------
+export LESS_TERMCAP_mb=$'\E[01;31m'      # begin blinking
+export LESS_TERMCAP_md=$'\E[01;31m'      # begin bold
+export LESS_TERMCAP_me=$'\E[0m'          # end mode
+export LESS_TERMCAP_se=$'\E[0m'          # end standout-mode                 
+export LESS_TERMCAP_so=$'\E[01;44;33m'   # begin standout-mode - info box                              
+export LESS_TERMCAP_ue=$'\E[0m'          # end underline
+export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
+
+# --------------------
 # Alias
 # --------------------
 alias ls='ls -h --color=tty --group-directories-first'
