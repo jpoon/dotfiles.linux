@@ -36,7 +36,7 @@ layouts =
     -- awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
     -- awful.layout.suit.floating
 }
