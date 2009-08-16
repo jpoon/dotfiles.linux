@@ -50,6 +50,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
 # --------------------
 # Alias
 # --------------------
+alias x='exit'
 alias ls='ls -h --color=tty --group-directories-first'
 alias l='ls'
 alias grep='grep --color'
