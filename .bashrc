@@ -56,7 +56,6 @@ alias grep='grep --color'
 alias mkdir='mkdir -p'
 alias vi='vim'
 alias ping='ping -c 5'
-alias sudo="sudo -k"
 alias shutdown='sudo shutdown -h now'
 alias reboot='sudo reboot'
 alias pacman="sudo pacman"
