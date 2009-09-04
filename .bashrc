@@ -79,8 +79,8 @@ export HISTFILESIZE=250
 PS1="[${UC}\u@\h \W${NONE}]\$ "
 
 case "$TERM" in
-    xterm*)
-        PROMPT_COMMAND='echo -ne "\e]0;xterm : ${PWD/$HOME/~}\007"'
+    xterm*|*rxvt*)
+        PROMPT_COMMAND='echo -ne "\e]0;${PWD/$HOME/~}\007"'
         ;;
     *)
         ;;
