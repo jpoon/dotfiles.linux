@@ -68,7 +68,6 @@ autorun = true
 autorunApps =
 {
     "wicd-client",
-    "offlineimap",
     terminal .. " -n mutt -e mutt",
 }
 if autorun then
