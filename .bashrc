@@ -1,3 +1,7 @@
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
 # ----------------------
 # Colors
 # ----------------------
@@ -36,9 +40,7 @@ BGW="\[\e[47m\]"
 UC=$W                       # user's color
 [ $UID -eq "0" ] && UC=$R   # root's color
 
-# --------------------
-# Color man pages
-#---------------------
+# man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'      # begin blinking
 export LESS_TERMCAP_md=$'\E[01;31m'      # begin bold
 export LESS_TERMCAP_me=$'\E[0m'          # end mode
