@@ -9,7 +9,7 @@
 	set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 
 	if has('mouse')
-            set mouse=a			" use mouse 
+        set mouse=a			" use mouse 
     endif
 
 	set fileformats=unix
@@ -44,6 +44,5 @@
 " Text Formatting/Layout {
 	set expandtab       " spaces preferred to tabs
    
-    set smartindent
-   	set tabstop=4   " 4-space tabs
+   	set tabstop=4       " 4-space tabs
 " }
