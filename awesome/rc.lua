@@ -61,6 +61,8 @@ floatapps =
 apptags =
 {
     ["Pidgin"] = { screen = 1, tag = 4 }, 
+    ["mutt"] = { screen = 1, tag = 4 },
+    ["sunbird-bin"] = { screen = 1, tag = 5 },
 }
 
 -- Autorun programs
@@ -68,7 +70,8 @@ autorun = true
 autorunApps =
 {
     "wicd-client",
-    terminal .. " -n mutt -e mutt",
+    "sunbird",
+    terminal .. " -name mutt -e mutt",
 }
 if autorun then
     for app = 1, #autorunApps do
@@ -83,12 +86,12 @@ use_titlebar = false
 -- {{{ Tags
 -- Define tags table.
 tags = {}
-tags_names = {"web", "dev", "media", "mail"}
+tags_names = {"web", "dev", "media", "mail", "cal"}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
     tags[s] = {}
     -- Create 5 tags per screen.
-    for tagnumber = 1, 4 do
+    for tagnumber = 1, 5 do
         tags[s][tagnumber] = tag(tags_names[tagnumber])
         -- Add tags to screen one by one
         tags[s][tagnumber].screen = s
