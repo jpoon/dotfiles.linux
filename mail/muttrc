@@ -30,7 +30,7 @@ macro index ga "<change-folder> =[Gmail].All<tab><enter>" "Go to all mail"
 #------------------------------------------------------------------------------
 # Display only some selected headers.
 ignore *
-unignore from: date: subject: to: cc: reply-to: posted-to: newsgroups:
+unignore from: date: subject: to: cc: reply-to: posted-to: 
 
 # Set the display order of the headers.
 hdr_order From: To: Cc: Reply-To: Subject: Date:
