@@ -1,16 +1,17 @@
 set mbox_type = Maildir
-set folder = $HOME/Mail/mr.j.poon@gmail.com
-set spoolfile = "+/INBOX"
-set record = "+/[GMAIL].Sent Mail"
-set postponed = "+/[GMAIL].Drafts"
+set folder = $HOME/Mail/
+set spoolfile = +"mr.j.poon@gmail.com/INBOX"
+set record = +"/Sent Mail"
+set postponed = +"/Drafts"
+set use_from
+
+alternates "(mr.j.poon@gmail.com)|(ubc.badm@gmail.com)"
 
 set header_cache =      ~/.mutt/cache/headers
 set message_cachedir =  ~/.mutt/cache/bodies
 set certificate_file =  ~/.mutt/certificates
 set mailcap_path =      ~/.mutt/.mailcap
 
-set realname = "Jason Poon"
-set from = "mr.j.poon@gmail.com"
 set sendmail = "/usr/bin/msmtp"
 
 set edit_headers = yes
@@ -22,8 +23,17 @@ set sort_aux = last-date-received
 #------------------------------------------------------------------------------
 # Shortcuts.
 #------------------------------------------------------------------------------
-macro index gi "<change-folder> =INBOX<enter>" "Go to inbox"
-macro index ga "<change-folder> =[Gmail].All<tab><enter>" "Go to all mail"
+#macro index gi "<change-folder> =INBOX<enter>" "Go to inbox"
+#macro index ga "<change-folder> =[Gmail].All<tab><enter>" "Go to all mail"
+
+macro index I "<change-folder> =ubc.badm@gmail.com/INBOX<enter>" "Switch to inbox"
+folder-hook mr.j.poon@gmail.com/* 'macro index I "<change-folder> =ubc.badm@gmail.com/INBOX<enter>" "Switch to ubc.badm inbox"'
+folder-hook ubc.badm@gmail.com/* 'macro index I "<change-folder> =mr.j.poon@gmail.com/INBOX<enter>" "Switch to mr.j.poon inbox"'
+
+macro index \e1 ":set from=mr.j.poon@gmail.com:set status_format=\"-%r-mr.j.poon@gmail.com: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---\"\n" "Switch to mr.j.poon@gmail.com"
+macro index \e2 ":set from=ubc.badm@gmail.com:set status_format=\"-%r-ubc.badm@gmail.com: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---\"\n" "Switch to ubc.badm@gmail.com"
+folder-hook mr.j.poon@gmail.com/* 'push \e1oi<enter>'
+folder-hook ubc.badm@gmail.com/* 'push \e2oi<enter>'
 
 #------------------------------------------------------------------------------
 # Headers.
