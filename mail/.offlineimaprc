@@ -4,7 +4,7 @@
 [general]
 
 # Specifies where offlineimap is to store its metadata
-metadata = ~/Mail/.offlineimap
+metadata = ~/.mail/.offlineimap
 
 accounts = mr.j.poon, ubc.badm
 maxsyncaccounts = 2
@@ -28,7 +28,7 @@ quick = 10
 [Repository mr.j.poon-Local]
 
 type = Maildir 
-localfolders = ~/Mail/mr.j.poon@gmail.com
+localfolders = ~/.mail/mr.j.poon@gmail.com
 
 [Repository mr.j.poon-Remote]
 
@@ -39,7 +39,7 @@ remoteport = 993
 ssl = yes 
 
 remoteuser = mr.j.poon@gmail.com
-remotepassfile = ~/Mail/password-mr.j.poon
+remotepassfile = ~/.mail/password-mr.j.poon
 
 maxconnections = 2
 
@@ -54,7 +54,7 @@ quick = 10
 [Repository ubc.badm-Local]
 
 type = Maildir 
-localfolders = ~/Mail/ubc.badm@gmail.com
+localfolders = ~/.mail/ubc.badm@gmail.com
 
 [Repository ubc.badm-Remote]
 
@@ -65,7 +65,7 @@ remoteport = 993
 ssl = yes 
 
 remoteuser = ubc.badm@gmail.com
-remotepassfile = ~/Mail/password-ubc.badm
+remotepassfile = ~/.mail/password-ubc.badm
 
 maxconnections = 2
 

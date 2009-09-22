@@ -1,5 +1,5 @@
 set mbox_type = Maildir
-set folder = $HOME/Mail/
+set folder = $HOME/.mail/
 set spoolfile = +"mr.j.poon@gmail.com/INBOX"
 set record = +"/Sent Mail"
 set postponed = +"/Drafts"
