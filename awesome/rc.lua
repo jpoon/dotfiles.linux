@@ -7,8 +7,9 @@ require("naughty")
 -- User-defined functions (functions.lua)
 require("functions")
 
+require("wicked")
+
 -- {{{ Variable definitions
--- Themes define colours, icons, and wallpapers
 -- The default is a dark theme
 theme_path = "/usr/share/awesome/themes/default/theme.lua"
 -- Uncommment this for a lighter theme
@@ -103,11 +104,10 @@ end
 -- }}}
 
 -- {{{ Wibox
--- Create a textbox widget
-mytextbox = widget({ type = "textbox", align = "right" })
--- Set the default text in textbox
---mytextbox.text = "<b><small> " .. awesome.release .. " </small></b>"
-mytextbox.text = getTime()
+
+-- Date widget
+datewidget= widget({ type = "textbox", name="datewidget", align = "right" })
+wicked.register(datewidget, wicked.widgets.date, '%a %b %d, %H:%M')
 
 separator = widget({ type = "textbox", align = "right" })
 separator.text = " | "
@@ -186,7 +186,7 @@ for s = 1, screen.count() do
     mywibox[s].widgets = { mytaglist[s],
                            mytasklist[s],
                            mypromptbox[s],
-                           mytextbox,
+                           datewidget,
                            separator,
                            battery,
                            spacer,
@@ -463,7 +463,7 @@ awful.hooks.arrange.register(function (screen)
 end)
 
 -- Hook called every minute
-awful.hooks.timer.register(60, function ()
+awful.hooks.timer.register(59, function ()
     mytextbox.text = getTime()
 end)
 

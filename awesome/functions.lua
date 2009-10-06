@@ -57,11 +57,6 @@ function getBatteryInfo(adapter)
     return prefix .. percentStr .. " " .. string.format("(%02d:%02d)", time_hour, time_minute)
 end
 
--- Time
-function getTime()
-    return os.date("%a %b %d, %H:%M")
-end
-
 -- Music
 function volume(mode)
     cardId = 0
