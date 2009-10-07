@@ -83,6 +83,7 @@ alias ping='ping -c 5'
 alias shutdown='sudo shutdown -h now'
 alias reboot='sudo reboot'
 alias pacman="sudo pacman"
+alias yaourt="sudo yaourt"
 alias su='su -'
 alias du="du -h"
 alias df="df -h"
