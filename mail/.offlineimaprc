@@ -12,7 +12,7 @@ maxsyncaccounts = 2
 # Curses.Blinkenlights - text-based (terminal) interface
 # Noninteractive.Basic
 # Noninteractive.Quiet - Noninteractive interface, generates no output except for errors 
-ui = Noninteractive.Basic 
+ui = Noninteractive.Quiet
  
 # ---------------------------------
 # Accounts
@@ -21,9 +21,6 @@ ui = Noninteractive.Basic
 
 localrepository = mr.j.poon-Local
 remoterepository = mr.j.poon-Remote
-
-autorefresh = 20
-quick = 10
 
 [Repository mr.j.poon-Local]
 
@@ -47,9 +44,6 @@ maxconnections = 2
 
 localrepository = ubc.badm-Local
 remoterepository = ubc.badm-Remote
-
-autorefresh = 20
-quick = 10
 
 [Repository ubc.badm-Local]
 
