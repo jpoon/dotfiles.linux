@@ -463,9 +463,9 @@ awful.hooks.arrange.register(function (screen)
 end)
 
 -- Hook called every minute
-awful.hooks.timer.register(59, function ()
-    mytextbox.text = getTime()
-end)
+--awful.hooks.timer.register(59, function ()
+--    mytextbox.text = getTime()
+--end)
 
 -- {{{ Battery hook
 awful.hooks.timer.register(30, function ()
