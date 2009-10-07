@@ -4,14 +4,15 @@ require("awful")
 require("beautiful")
 -- Notification library
 require("naughty")
+-- Widgets Library
+require("wicked")
+
 -- User-defined functions (functions.lua)
 require("functions")
 
-require("wicked")
-
 -- {{{ Variable definitions
 -- The default is a dark theme
-theme_path = "/usr/share/awesome/themes/default/theme.lua"
+theme_path = "/home/jason/.config/awesome/themes/default/theme.lua"
 -- Uncommment this for a lighter theme
 -- theme_path = "/usr/share/awesome/themes/sky/theme.lua"
 
