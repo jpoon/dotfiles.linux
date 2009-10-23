@@ -88,6 +88,8 @@ alias su='su -'
 alias du="du -h"
 alias df="df -h"
 
+alias ssh-planetlab="ssh -i /home/jason/ubc/eece411/PlanetLab/id_rsa -l usf_ubcslice3 $1"
+
 export PATH=/usr/local/bin:$PATH
 
 #--------------------
