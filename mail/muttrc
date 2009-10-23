@@ -12,6 +12,9 @@ set message_cachedir =  ~/.mutt/cache/bodies
 set certificate_file =  ~/.mutt/certificates
 set mailcap_path =      ~/.mutt/.mailcap
 
+set date_format="%b %d"
+set index_format="%4C %Z %D (%4c) %n %s"
+
 set sendmail = "/usr/bin/msmtp"
 
 set edit_headers = yes
@@ -19,9 +22,6 @@ set move = no           # Move read messages to another folder?
 
 set sort = threads
 set sort_aux = last-date-received
-
-#------------------------------------------------------------------------------
-# Shortcuts.
 #------------------------------------------------------------------------------
 #macro index gi "<change-folder> =INBOX<enter>" "Go to inbox"
 #macro index ga "<change-folder> =[Gmail].All<tab><enter>" "Go to all mail"
@@ -40,10 +40,19 @@ folder-hook ubc.badm@gmail.com/* 'push \e2oi<enter>'
 #------------------------------------------------------------------------------
 # Display only some selected headers.
 ignore *
-unignore from: date: subject: to: cc: reply-to: posted-to: 
+unignore From: 
+unignore To:
+unignore Reply-To:
+unignore Subject:
+unignore Date:
+unignore CC:
+unignore BCC:
+unignore X-Mailer:
+unignore User-Agent:
 
 # Set the display order of the headers.
-hdr_order From: To: Cc: Reply-To: Subject: Date:
+unhdr_order *
+hdr_order From: Subject: To: CC: Date: User-Agent: X-Mailer:
 
 #------------------------------------------------------------------------------
 # Colors.
