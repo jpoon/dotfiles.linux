@@ -43,6 +43,6 @@
 
 " Text Formatting/Layout {
 	set expandtab       " spaces preferred to tabs
-   
+    set shiftwidth=4 
    	set tabstop=4       " 4-space tabs
 " }
