@@ -57,48 +57,40 @@ hdr_order From: Subject: To: CC: Date: User-Agent: X-Mailer:
 #------------------------------------------------------------------------------
 # Colors.
 #------------------------------------------------------------------------------
-color status     brightgreen   blue
-color tree       red           default
-color markers    brightred     default
-color tilde      blue          default
-color indicator  black         cyan
+color attachment    brightmagenta   default  
+color error         white           red         # errors yell at you in red
+color indicator     black           magenta     # currently selected message
+color markers       brightcyan      default     # the + for wrapped pager lines
+color message       brightcyan      default     # informational messages, not mail
+color normal        white           default     # plain text
+color search        brightgreen     default     # hilite search patterns in the pager
+color signature     brightred       default     # signature (after "-- ") is red 
+color status        brightyellow    blue        # status bar is yellow *on blue*   
+color tilde         blue            default     # ~'s after message body
+color tree          red             default     # thread tree in index menu is magenta
+color underline     yellow          default
+color hdrdefault    red             default     # headers
+color header        cyan            default ^(From|Subject): 
+color body          magenta         default "(ftp|http)://[^ ]+"  # picks up URLs
+color body          magenta         default [-a-z_0-9.]+@[-a-z_0-9.]+ 
 
-color index      cyan          default "!~R"
-color index      brightcyan    default "~T"
-color index      brightgreen   default "~p"
-color index      brightgreen   default ".*Uwe Hermann.*"
-color index      red           default ~D
+#  Coloring quoted text - coloring the first 7 levels:
+color quoted        cyan            default
+color quoted1       yellow          default
+color quoted2       red             default
+color quoted3       green           default
+color quoted4       cyan            default
+color quoted5       yellow          default
+color quoted6       red             default
+color quoted7       green           default
 
-color hdrdefault brightyellow  default
+#  Colorize smileys:  :-)  ;-)  :-/  :-(
+color body          yellow          default "[;:]-[)/(|]"
+color body          yellow          default "[;:][)/(|]"
+color body          green           default "[[:alpha:]]\+://[^ ]*"
 
-color header     brightmagenta default ^Subject:
-color header     brightwhite   default ^X-Mailer:
-color header     brightwhite   default ^User-Agent:
-color header     brightgreen   default ^From:
-color header     brightgreen   default ^Reply-To:
-color header     brightgreen   default ^To:
-color header     brightgreen   default ^Cc:
-color header     brightgreen   default ^Bcc:
-color header     brightgreen   default ^Delivered-To:
-
-color body       brightwhite   default (http|ftp)://[\-\.\,/%~_:?\#a-zA-Z0-9]+
-color body       brightyellow  default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
-color body       brightmagenta default ^Subject:
-color body       yellow        default "[;:]-[)/(|]"  # Colorise smileys
-
-color quoted     brightcyan    default
-color quoted1    cyan          default
-color quoted2    brightcyan    default
-color quoted3    cyan          default
-color quoted4    brightcyan    default
-color quoted5    cyan          default
-
-color signature  cyan          default
-color attachment green         default
-
-color body       brightyellow  black   "^Good signature"
-color body       brightwhite   red     "^Bad signature from.*"
-
-color body       brightwhite   default "(http|ftp|news|telnet|finger|mailto)://[^ \"\t\r\n]*"
-color body       brightyellow  default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
-
+color index         brightyellow    default ~N  # New
+color index         yellow          default ~O  # Old
+color index         magenta         default ~F
+color index         blue            default ~T
+color index         red             default ~D
