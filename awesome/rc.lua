@@ -63,8 +63,8 @@ floatapps =
 apptags =
 {
     ["Pidgin"] = { screen = 1, tag = 4 }, 
-    ["mutt"] = { screen = 1, tag = 4 },
-    ["sunbird-bin"] = { screen = 1, tag = 5 },
+    ["mutt"] = { screen = 1, tag = 5 },
+    ["sunbird-bin"] = { screen = 1, tag = 6 },
 }
 
 -- Autorun programs
@@ -88,12 +88,12 @@ use_titlebar = false
 -- {{{ Tags
 -- Define tags table.
 tags = {}
-tags_names = {"web", "dev", "media", "mail", "cal"}
+tags_names = {"web", "dev", "ssh", "media", "mail", "cal"}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
     tags[s] = {}
-    -- Create 5 tags per screen.
-    for tagnumber = 1, 5 do
+    -- Create 6 tags per screen.
+    for tagnumber = 1, 6 do
         tags[s][tagnumber] = tag(tags_names[tagnumber])
         -- Add tags to screen one by one
         tags[s][tagnumber].screen = s
