@@ -15,13 +15,17 @@ set mailcap_path =      ~/.mutt/.mailcap
 set date_format="%b %d"
 set index_format="%4C %Z %D (%4c) %n %s"
 
+set pager_context=4
+set pager_index_lines=10
+
 set sendmail = "/usr/bin/msmtp"
 
-set edit_headers = yes
+set edit_headers = yes  # Allows editing of headers of outgoing messages
 set move = no           # Move read messages to another folder?
 
 set sort = threads
 set sort_aux = last-date-received
+
 #------------------------------------------------------------------------------
 #macro index gi "<change-folder> =INBOX<enter>" "Go to inbox"
 #macro index ga "<change-folder> =[Gmail].All<tab><enter>" "Go to all mail"
@@ -91,6 +95,6 @@ color body          green           default "[[:alpha:]]\+://[^ ]*"
 
 color index         brightyellow    default ~N  # New
 color index         yellow          default ~O  # Old
-color index         magenta         default ~F
-color index         blue            default ~T
-color index         red             default ~D
+color index         magenta         default ~F  # Message from me
+color index         blue            default ~T  # Message sent to you, but also cc'ed to others
+color index         red             default ~D  # Delete
