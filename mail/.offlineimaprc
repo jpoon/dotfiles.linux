@@ -13,6 +13,8 @@ maxsyncaccounts = 2
 # Noninteractive.Basic
 # Noninteractive.Quiet - Noninteractive interface, generates no output except for errors 
 ui = Noninteractive.Quiet
+
+realdelete = no
  
 # ---------------------------------
 # Accounts
