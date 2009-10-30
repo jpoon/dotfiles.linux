@@ -87,8 +87,8 @@ alias yaourt="sudo yaourt"
 alias su='su -'
 alias du="du -h"
 alias df="df -h"
-alias pu="pwd > ~/.temp/pushd"
-alias po="tempDir=\`cat ~/.temp/pushd\` && cd $tempDir"
+alias pu="pwd > /tmp/pushd"
+alias po="cd `cat /tmp/pushd`"
 alias wifi-off="sudo ifconfig wlan0 down"
 
 alias ssh-planetlab="ssh -i /home/jason/ubc/eece411/PlanetLab/id_rsa -l usf_ubcslice3 $1"
