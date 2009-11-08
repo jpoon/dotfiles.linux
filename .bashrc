@@ -61,6 +61,9 @@ BGW="\[\e[47m\]"
 UC=$W                       # user's color
 [ $UID -eq "0" ] && UC=$R   # root's color
 
+# --------------------
+# System Variables
+# --------------------
 # man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'      # begin blinking
 export LESS_TERMCAP_md=$'\E[01;31m'      # begin bold
@@ -69,6 +72,17 @@ export LESS_TERMCAP_se=$'\E[0m'          # end standout-mode
 export LESS_TERMCAP_so=$'\E[01;44;33m'   # begin standout-mode - info box                              
 export LESS_TERMCAP_ue=$'\E[0m'          # end underline
 export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
+
+# path
+export PATH=/usr/local/bin:/opt/google_appengine:$PATH
+
+# svn
+export SVN_EDITOR="vim"
+
+# history
+export HISTIGNORE="&:[ ]*:ls:cd:clear:exit"
+export HISTCONTROL="ignoreboth"
+export HISTFILESIZE=250
 
 # --------------------
 # Alias
@@ -88,19 +102,10 @@ alias su='su -'
 alias du="du -h"
 alias df="df -h"
 alias pu="pwd > /tmp/pushd"
-alias po="cd `cat /tmp/pushd`"
+alias po="cd `cat /tmp/pushd 2>&1` &> /dev/null"
 alias wifi-off="sudo ifconfig wlan0 down"
 
 alias ssh-planetlab="ssh -i /home/jason/ubc/eece411/PlanetLab/id_rsa -l usf_ubcslice3 $1"
-
-export PATH=/usr/local/bin:$PATH
-
-#--------------------
-# History
-#-------------------
-export HISTIGNORE="&:[ ]*:ls:cd:clear:exit"
-export HISTCONTROL="ignoreboth"
-export HISTFILESIZE=250
 
 #--------------------
 # Prompt
