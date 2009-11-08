@@ -9,12 +9,9 @@ metadata = ~/.mail/.offlineimap
 accounts = mr.j.poon, ubc.badm
 maxsyncaccounts = 2
 
-# Curses.Blinkenlights - text-based (terminal) interface
-# Noninteractive.Basic
-# Noninteractive.Quiet - Noninteractive interface, generates no output except for errors 
-ui = Noninteractive.Quiet
+ui = Noninteractive.Basic
 
-realdelete = no
+realdelete = True
  
 # ---------------------------------
 # Accounts
@@ -25,21 +22,16 @@ localrepository = mr.j.poon-Local
 remoterepository = mr.j.poon-Remote
 
 [Repository mr.j.poon-Local]
-
 type = Maildir 
 localfolders = ~/.mail/mr.j.poon@gmail.com
 
 [Repository mr.j.poon-Remote]
-
 type = IMAP 
 remotehost = imap.gmail.com
 remoteport = 993
-
 ssl = yes 
-
 remoteuser = mr.j.poon@gmail.com
 remotepassfile = ~/.mail/password-mr.j.poon
-
 maxconnections = 2
 
 [Account ubc.badm]
@@ -48,20 +40,15 @@ localrepository = ubc.badm-Local
 remoterepository = ubc.badm-Remote
 
 [Repository ubc.badm-Local]
-
 type = Maildir 
 localfolders = ~/.mail/ubc.badm@gmail.com
 
 [Repository ubc.badm-Remote]
-
 type = IMAP 
 remotehost = imap.gmail.com
 remoteport = 993
-
 ssl = yes 
-
 remoteuser = ubc.badm@gmail.com
 remotepassfile = ~/.mail/password-ubc.badm
-
 maxconnections = 2
 
