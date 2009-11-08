@@ -13,7 +13,7 @@ set certificate_file =  ~/.mutt/certificates
 set mailcap_path =      ~/.mutt/.mailcap
 
 set date_format="%b %d"
-set index_format="%4C %Z %D (%4c) %n %s"
+set index_format="%4C %Z %D (%4c) [%n] %s"
 
 set pager_context=4
 set pager_index_lines=10
@@ -23,10 +23,14 @@ set sendmail = "/usr/bin/msmtp"
 set edit_headers = yes  # Allows editing of headers of outgoing messages
 set move = no           # Move read messages to another folder?
 
-set sort = threads
-set sort_aux = last-date-received
+set sort = last-date-received
+
+set query_command = "/home/jason/.mail/goobook/contactos.py %s"
 
 #------------------------------------------------------------------------------
+bind editor <Tab> complete-query
+bind editor ^T complete
+
 #macro index gi "<change-folder> =INBOX<enter>" "Go to inbox"
 #macro index ga "<change-folder> =[Gmail].All<tab><enter>" "Go to all mail"
 
