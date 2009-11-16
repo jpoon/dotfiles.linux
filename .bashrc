@@ -73,12 +73,6 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'   # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'          # end underline
 export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
 
-# path
-export PATH=/usr/local/bin:/opt/google_appengine:$PATH
-
-# svn
-export SVN_EDITOR="vim"
-
 # history
 export HISTIGNORE="&:[ ]*:ls:cd:clear:exit"
 export HISTCONTROL="ignoreboth"
