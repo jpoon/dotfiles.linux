@@ -13,6 +13,8 @@
     endif
 
 	set fileformats=unix
+    set clipboard=unnamed   " share clipboard
+    set ttimeoutlen=100
 
 	set wildmenu		" turn on cmd line completion wild style
 	set wildignore=*.dll,*.o,*.obj,*.bak,*.swp
@@ -28,10 +30,11 @@
         set smartcase 
     " }
     
-    set nowrap
+    set wrap
 	set number			" line numbers
 	set showcmd			" show cmd being typed
 	set showmatch		" show matching brace
+    set nostartofline   " preserve column position during motion commands
 " }
 
 " Vim Behaviour {
@@ -45,4 +48,5 @@
 	set expandtab       " spaces preferred to tabs
     set shiftwidth=4 
    	set tabstop=4       " 4-space tabs
+    set formatoptions+=nl1
 " }
