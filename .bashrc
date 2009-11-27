@@ -23,6 +23,14 @@ extract () {
     fi
 }
 
+function pu {
+   pwd > /tmp/pushd
+}
+
+function po {
+   cd `cat /tmp/pushd 2>&1` &> /dev/null
+}
+
 # --------------------
 # Colors
 # ----------------------
@@ -95,8 +103,6 @@ alias yaourt="sudo yaourt"
 alias su='su -'
 alias du="du -h"
 alias df="df -h"
-alias pu="pwd > /tmp/pushd"
-alias po="cd `cat /tmp/pushd 2>&1` &> /dev/null"
 alias wifi-off="sudo ifconfig wlan0 down"
 
 alias ssh-planetlab="ssh -i /home/jason/ubc/eece411/PlanetLab/id_rsa -l usf_ubcslice3 $1"
