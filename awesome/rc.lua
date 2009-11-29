@@ -349,7 +349,7 @@ awful.hooks.focus.register(function (c)
     if not awful.client.ismarked(c) then
         c.border_color = beautiful.border_focus
     end
-    c.opacity = 0.95;
+    c.opacity = 0.90;
 end)
 
 -- Hook function to execute when unfocusing a client.
@@ -357,13 +357,13 @@ awful.hooks.unfocus.register(function (c)
     if not awful.client.ismarked(c) then
         c.border_color = beautiful.border_normal
     end
-    c.opacity = 0.80;
+    c.opacity = 0.60;
 end)
 
 -- Hook function to execute when fullscreening a client
 awful.hooks.property.register(function (c,prop)
     if c.fullscreen then
-        c.opacity = 1
+        c.opacity = 0.95;
     end
 end)
 
