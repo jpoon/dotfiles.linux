@@ -11,20 +11,20 @@ require("wicked")
 require("functions")
 
 -- {{{ Variable definitions
--- The default is a dark theme
 theme_path = "/home/jason/.config/awesome/themes/default/theme.lua"
--- Uncommment this for a lighter theme
--- theme_path = "/usr/share/awesome/themes/sky/theme.lua"
 
 -- Actually load theme
 beautiful.init(theme_path)
 
--- This is used later as the default terminal and editor to run.
 browser = "firefox"
 terminal = "urxvt"
 batteryAdapter = "BAT0"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
+
+opacity_focus = 0.90
+opacity_unfocus = 0.60
+opacity_fullscreen = 0.95
 
 modkey = "Mod4"
 
@@ -349,7 +349,7 @@ awful.hooks.focus.register(function (c)
     if not awful.client.ismarked(c) then
         c.border_color = beautiful.border_focus
     end
-    c.opacity = 0.90;
+    c.opacity = opacity_focus
 end)
 
 -- Hook function to execute when unfocusing a client.
@@ -357,13 +357,15 @@ awful.hooks.unfocus.register(function (c)
     if not awful.client.ismarked(c) then
         c.border_color = beautiful.border_normal
     end
-    c.opacity = 0.60;
+    c.opacity = opacity_unfocus
 end)
 
 -- Hook function to execute when fullscreening a client
 awful.hooks.property.register(function (c,prop)
     if c.fullscreen then
-        c.opacity = 0.95;
+        c.opacity = opacity_fullscreen
+    else
+        c.opacity = opacity_focus
     end
 end)
 
