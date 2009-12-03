@@ -23,7 +23,8 @@ set sendmail = "/usr/bin/msmtp"
 set edit_headers = yes  # Allows editing of headers of outgoing messages
 set move = no           # Move read messages to another folder?
 
-set sort = last-date-received
+set sort = threads
+set sort_aux = last-date-received
 
 set query_command = "/home/jason/.mail/goobook/contactos.py %s"
 
