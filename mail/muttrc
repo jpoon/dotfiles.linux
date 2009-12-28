@@ -13,7 +13,7 @@ set certificate_file =  ~/.mutt/certificates
 set mailcap_path =      ~/.mutt/.mailcap
 
 set date_format="%b %d"
-set index_format="%4C %Z %D (%4c) [%n] %s"
+set index_format="%5C %Z %D (%4c)  [%-15.15n]  %s"
 
 set pager_context=4
 set pager_index_lines=10
