@@ -1,7 +1,6 @@
 !--------------------------
 !xterm
 !--------------------------
-
 xterm*faceName:         Lucida\ Console 
 xterm*faceSize:         10 
 xterm*scrollBar:        false
@@ -47,12 +46,12 @@ URxvt*font:                 xft:DejaVu Sans Mono:pixelsize=13
 URxvt*highlightSelection:   true
 
 !scroll
-URxvt*scrollBar:            false
-URxvt*scrollBar_right:      true
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:  true
 
 !colors
 URxvt*foreground:       #d3d3d3
-URxvt*background:       #000000
+URxvt*background:       [50]#000000
 URxvt*cursorColor:      orange
 !black
 URxvt*color0:           #000000
