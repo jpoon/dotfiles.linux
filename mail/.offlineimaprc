@@ -6,7 +6,7 @@
 # Specifies where offlineimap is to store its metadata
 metadata = ~/.mail/.offlineimap
 
-accounts = mr.j.poon, ubc.badm
+accounts = mr.j.poon, jasonpoon, ubc.badm
 maxsyncaccounts = 2
 
 ui = Noninteractive.Basic
@@ -16,6 +16,7 @@ realdelete = True
 # ---------------------------------
 # Accounts
 # ---------------------------------
+# mr.j.poon@gmail.com
 [Account mr.j.poon]
 
 localrepository = mr.j.poon-Local
@@ -31,9 +32,29 @@ remotehost = imap.gmail.com
 remoteport = 993
 ssl = yes 
 remoteuser = mr.j.poon@gmail.com
-remotepassfile = ~/.mail/password-mr.j.poon
+remotepassfile = ~/.mail/password/mr.j.poon
 maxconnections = 2
 
+# jasonpoon.ca
+[Account jasonpoon]
+
+localrepository = jasonpoon-Local
+remoterepository = jasonpoon-Remote
+
+[Repository jasonpoon-Local]
+type = Maildir 
+localfolders = ~/.mail/jasonpoon.ca
+
+[Repository jasonpoon-Remote]
+type = IMAP 
+remotehost = imap.gmail.com
+remoteport = 993
+ssl = yes 
+remoteuser = me@jasonpoon.ca
+remotepassfile = ~/.mail/password/jasonpoon.ca
+maxconnections = 2
+
+# ubc.badm@gmail.com
 [Account ubc.badm]
 
 localrepository = ubc.badm-Local
@@ -49,6 +70,6 @@ remotehost = imap.gmail.com
 remoteport = 993
 ssl = yes 
 remoteuser = ubc.badm@gmail.com
-remotepassfile = ~/.mail/password-ubc.badm
+remotepassfile = ~/.mail/password/ubc.badm
 maxconnections = 2
 
