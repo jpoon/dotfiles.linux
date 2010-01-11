@@ -1,0 +1,5 @@
+#!/bin/bash
+# Run offlineimap to fetch new mail
+
+logger -i -t offlineimap "Starting offlineimap"
+offlineimap -o -u Noninteractive.Quiet &> /dev/null &
