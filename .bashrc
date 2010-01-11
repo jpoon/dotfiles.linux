@@ -110,7 +110,8 @@ alias wifi-off="sudo ifconfig wlan0 down"
 #--------------------
 # Prompt
 #-------------------
-PS1="[${UC}\u@\h \W${NONE}]\$ "
+#PS1="[${UC}\u@\h \W${NONE}]\$ "
+PS1="\w${NONE} \$ "
 
 case "$TERM" in
     xterm*|*rxvt*)
