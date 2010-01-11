@@ -64,6 +64,7 @@ apptags =
 {
     ["Pidgin"] = { screen = 1, tag = 4 }, 
     ["mutt"] = { screen = 1, tag = 5 },
+    ["wyrd"] = { screen = 1, tag = 6 },
 }
 
 -- Autorun programs
@@ -72,6 +73,7 @@ autorunApps =
 {
     "wicd-client",
     terminal .. " -name mutt -e mutt",
+    terminal .. " -name wyrd -e wyrd",
 }
 if autorun then
     for app = 1, #autorunApps do
