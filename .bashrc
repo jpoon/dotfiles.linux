@@ -86,6 +86,8 @@ export HISTIGNORE="&:[ ]*:ls:cd:clear:exit"
 export HISTCONTROL="ignoreboth"
 export HISTFILESIZE=250
 
+export EDITOR='vim'
+
 # --------------------
 # Alias
 # --------------------
