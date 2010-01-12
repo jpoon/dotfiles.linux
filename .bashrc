@@ -66,7 +66,7 @@ BGC="\[\e[46m\]"
 BGW="\[\e[47m\]"
 
 # Root/User Term Color Distinction
-UC=$W                       # user's color
+UC=$M                       # user's color
 [ $UID -eq "0" ] && UC=$R   # root's color
 
 # --------------------
@@ -106,12 +106,12 @@ alias su='su -'
 alias du="du -h"
 alias df="df -h"
 alias wifi-off="sudo ifconfig wlan0 down"
+alias wifi-off="sudo ifconfig wlan0 up"
 
 #--------------------
 # Prompt
 #-------------------
-#PS1="[${UC}\u@\h \W${NONE}]\$ "
-PS1="\w${NONE} \$ "
+PS1="${UC}\w${NONE} \$ "
 
 case "$TERM" in
     xterm*|*rxvt*)
