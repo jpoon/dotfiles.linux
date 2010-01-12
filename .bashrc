@@ -106,7 +106,7 @@ alias su='su -'
 alias du="du -h"
 alias df="df -h"
 alias wifi-off="sudo ifconfig wlan0 down"
-alias wifi-off="sudo ifconfig wlan0 up"
+alias wifi-on="sudo ifconfig wlan0 up"
 
 #--------------------
 # Prompt
