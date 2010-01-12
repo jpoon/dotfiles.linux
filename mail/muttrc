@@ -1,14 +1,15 @@
 set mbox_type = Maildir
 set folder = $HOME/.mail/
-set spoolfile = +"mr.j.poon@gmail.com/INBOX"
+set spoolfile = +"jasonpoon.ca/INBOX"
 set record = +"/Sent Mail"
 set postponed = +"/Drafts"
 set use_from
 
-alternates "(mr.j.poon@gmail.com)|(ubc.badm@gmail.com)"
+alternates "(mr.j.poon@gmail.com)|(ubc.badm@gmail.com)|(email@jasonpoon.ca)"
 
 set header_cache =      ~/.mutt/cache/headers
 set message_cachedir =  ~/.mutt/cache/bodies
+set message_cache_clean = yes
 set certificate_file =  ~/.mutt/certificates
 set mailcap_path =      ~/.mutt/.mailcap
 
@@ -34,6 +35,7 @@ bind editor ^T complete
 
 #macro index gi "<change-folder> =INBOX<enter>" "Go to inbox"
 #macro index ga "<change-folder> =[Gmail].All<tab><enter>" "Go to all mail"
+macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
 macro index I "<change-folder> =ubc.badm@gmail.com/INBOX<enter>" "Switch to inbox"
 folder-hook mr.j.poon@gmail.com/* 'macro index I "<change-folder> =ubc.badm@gmail.com/INBOX<enter>" "Switch to ubc.badm inbox"'
