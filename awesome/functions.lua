@@ -70,7 +70,7 @@ function volume(mode)
         awful.util.spawn("amixer -q -c " .. cardId .. " sset " .. channel .. " 5%+") 
     end
 end
-
+ 
 function audio(op)
     if op == "play" then
         awful.util.spawn("mocp --toggle-pause")
@@ -83,5 +83,3 @@ function audio(op)
     end
 end
         
-
-
