@@ -1,1 +1,2 @@
-/home/jason/.mutt/.mailcap
+text/html; firefox %s
+text/plain; vim %s
