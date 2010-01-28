@@ -3,9 +3,14 @@ set folder = $HOME/.mail/
 set spoolfile = +"jasonpoon.ca/INBOX"
 set record = +"/Sent Mail"
 set postponed = +"/Drafts"
-set use_from
 
-alternates "(mr.j.poon@gmail.com)|(ubc.badm@gmail.com)|(email@jasonpoon.ca)"
+set reverse_name
+set realname = "Jason Poon"
+set use_from = yes
+set edit_headers = yes  # Allows editing of headers of outgoing messages
+set use_envelope_from = yes
+
+alternates "(mr.j.poon@gmail.com)|(ubc.badm@gmail.com)|(*@jasonpoon.ca)"
 
 set header_cache =      ~/.mutt/cache/headers
 set message_cachedir =  ~/.mutt/cache/bodies
@@ -21,7 +26,6 @@ set pager_index_lines=10
 
 set sendmail = "/usr/bin/msmtp"
 
-set edit_headers = yes  # Allows editing of headers of outgoing messages
 set move = no           # Move read messages to another folder?
 
 set sort = threads
@@ -38,6 +42,7 @@ bind editor ^T complete
 macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
 macro index I "<change-folder> =ubc.badm@gmail.com/INBOX<enter>" "Switch to inbox"
+folder-hook jasonpoon/* 'set from=jason@jasonpoon.ca'
 folder-hook mr.j.poon@gmail.com/* 'macro index I "<change-folder> =ubc.badm@gmail.com/INBOX<enter>" "Switch to ubc.badm inbox"'
 folder-hook ubc.badm@gmail.com/* 'macro index I "<change-folder> =mr.j.poon@gmail.com/INBOX<enter>" "Switch to mr.j.poon inbox"'
 
