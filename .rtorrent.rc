@@ -18,16 +18,16 @@ max_uploads = 8
 #upload_rate = 0
 
 # Default directory to save the downloaded torrents.
-directory = /home/jason/Downloads/torrent
+directory = /home/jason/downloads/torrent
 
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a
 # relative path?
-session = /home/jason/Downloads/torrent/.session
+session = /home/jason/downloads/torrent/.session
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
-schedule = watch_directory,5,5,load_start=/home/jason/Downloads/*.torrent
+schedule = watch_directory,5,5,load_start=/home/jason/downloads/*.torrent
 schedule = untied_directory,5,5,stop_untied=
 
 # Close torrents when diskspace is low.
