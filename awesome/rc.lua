@@ -1,20 +1,17 @@
+-- {{{ Libraries
 require("vicious")
--- Standard awesome library
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
--- Theme handling library
 require("beautiful")
--- Notification library
 require("naughty")
 -- User-defined functions
 require("functions")
+-- }}}
 
 -- {{{ Variable definitions
--- Themes define colours, icons, and wallpapers
 beautiful.init("/home/jason/.config/awesome/theme/theme.lua")
 
--- This is used later as the default terminal and editor to run.
 browser = "firefox"
 terminal = "urxvt"
 batteryAdapter = "BAT0"
@@ -25,18 +22,13 @@ opacity_focus = 1
 opacity_unfocus = 0.65
 
 -- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
--- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
 --    awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
+--    awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
 --    awful.layout.suit.fair,
@@ -54,17 +46,18 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "web", "dev", "ssh", "media", "mail", "cal" }, s, layouts[1])
+    tags[s] = awful.tag({ "web", "dev", "ssh", "media", "im", "mail", "rss"}, s, layouts[1])
 end
 -- }}}
 
--- Autorun programs
+-- {{{ AutoRun 
 autorun = true
 autorunApps = 
 { 
     "wicd-client",
     terminal .. " -name mutt -e mutt",
-    terminal .. " -name wyrd -e wyrd",
+    terminal .. " -name newsbeuter -e newsbeuter",
+--    terminal .. " -name wyrd -e wyrd",
 }    
 
 function run_once(prg)
@@ -79,6 +72,7 @@ if autorun then
         run_once(autorunApps[app])
     end
 end
+-- }}}
 
 -- {{{ Wibox
 separator = widget({ type = "textbox", align = "right" })
@@ -87,17 +81,22 @@ separator.text = " |"
 spacer = widget({ type = "textbox", align = "right" })
 spacer.text = " "
 
--- Create a textclock widget
+-- textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
--- Create a battery widget
+-- battery widget
 mybattery = widget({ type = "textbox", align = "right" })
 mybattery.text = getBatteryInfo(batteryAdapter)
+batterytimer = timer { timeout = 30 }
+batterytimer:add_signal("timeout", function() 
+    mybattery.text = getBatteryInfo(batteryAdapter) 
+end)
+batterytimer:start()
 
--- Create a systray
+-- systray
 mysystray = widget({ type = "systray" })
 
--- Create a wibox for each screen and add it
+-- wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
 mylayoutbox = {}
@@ -329,8 +328,10 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    { rule = { class = "mutt" },
-      properties = { tag = tags[1][5] } },
+    { rule = { name = "mutt" },
+      properties = { tag = tags[1][6] } },
+    { rule = { name = "newsbeuter" },
+      properties = { tag = tags[1][7] } },
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
@@ -359,11 +360,11 @@ client.add_signal("manage", function (c, startup)
         -- Put windows in a smart way, only if they does not set an initial position.
         if not c.size_hints.user_position and not c.size_hints.program_position then
             awful.placement.no_overlap(c)
-            awful.placement.no_offscreen(c)
+           awful.placement.no_offscreen(c)
         end
-
-        c.size_hints_honor = false
     end
+
+--    c.size_hints_honor = false
 end)
 
 client.add_signal("focus", function(c)
@@ -374,13 +375,4 @@ client.add_signal("unfocus", function(c)
     c.border_color = beautiful.border_normal
     c.opacity = opacity_unfocus
 end)
-
-client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-
-batterytimer = timer { timeout = 30 }
-batterytimer:add_signal("timeout", function() 
-    mybattery.text = getBatteryInfo(batteryAdapter) 
-end)
-batterytimer:start()
 -- }}}
