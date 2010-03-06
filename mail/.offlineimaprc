@@ -33,7 +33,7 @@ remoteport = 993
 ssl = yes 
 remoteuser = me@jasonpoon.ca
 remotepassfile = ~/.mail/password/jasonpoon.ca
-maxconnections = 2
+maxconnections = 3
 
 # ubc.badm@gmail.com
 [Account ubc.badm]
@@ -52,5 +52,5 @@ remoteport = 993
 ssl = yes 
 remoteuser = ubc.badm@gmail.com
 remotepassfile = ~/.mail/password/ubc.badm
-maxconnections = 2
+maxconnections = 3
 
