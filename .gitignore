@@ -8,3 +8,12 @@
 *.swp
 *.o
 *.out
+*.d
+*.lst
+*.eep
+*.hex
+*.map
+*.sym
+*.lss
+*.elf
+.svn
