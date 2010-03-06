@@ -50,3 +50,7 @@
    	set tabstop=4       " 4-space tabs
     set formatoptions+=nl1
 " }
+
+" ctags {
+    set tags=tags;/
+" }
