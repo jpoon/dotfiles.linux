@@ -1,5 +1,5 @@
 -- {{{ Libraries
-require("vicious")
+--require("vicious")
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
@@ -328,7 +328,7 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    { rule = { name = "pidgin" },
+    { rule = { class = "Pidgin" },
       properties = { tag = tags[1][5] } },
     { rule = { name = "mutt" },
       properties = { tag = tags[1][6] } },
