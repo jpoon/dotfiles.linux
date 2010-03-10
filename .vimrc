@@ -26,20 +26,29 @@
     
     " Search {
 	    set hlsearch    " highlighting of search
-        set ignorecase  " ignore case
+        set ignorecase
         set smartcase 
     " }
-    
+   
+    set autoindent 
     set wrap
 	set number			" line numbers
 	set showcmd			" show cmd being typed
 	set showmatch		" show matching brace
     set nostartofline   " preserve column position during motion commands
+
+    " Folding {
+        set foldmethod=indent
+        set foldnestmax=10
+        set nofoldenable
+        set foldlevel=1
+    " }
 " }
 
 " Vim Behaviour {
     set autoread        " auto read externally modified files
     set nobackup        " no backup files
+    set noswapfile
 
     set history=50      " keep 50 lines of command line history
 " }
@@ -51,6 +60,30 @@
     set formatoptions+=nl1
 " }
 
-" ctags {
-    set tags=tags;/
-" }
+" Plugins {
+    set nocp
+    filetype plugin on
+    " OmniCppComplete {
+        highlight Pmenu ctermbg=brown gui=bold
+        let OmniCpp_NamespaceSearch = 1
+        let OmniCpp_GlobalScopeSearch = 1
+        let OmniCpp_ShowAccess = 1
+        let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+        let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+        let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+        let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+        let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+
+        " Close preview window after unfocus
+        autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+        autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+    " }
+    
+    " SuperTab {
+        let g:SuperTabDefaultCompletionType = "context"
+    " }
+
+    " ctags {
+        set tags=/home/jason/ubc/eece496/nano-RK/tags,/home/jason/ubc/eece496/activity_monitor/tags,tags;/
+        noremap <F5> :!ctags -R .<CR>
+    " }
