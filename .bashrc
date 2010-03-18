@@ -23,6 +23,12 @@ extract () {
     fi
 }
 
+function svndiff {
+    svn diff "${@}" | colordiff
+}
+
+
+
 function pu {
    pwd > /tmp/pushd
 }
@@ -96,11 +102,13 @@ alias ls='ls -h --color=tty --group-directories-first'
 alias l='ls'
 alias grep='grep --color'
 alias mkdir='mkdir -p'
-alias vi='vim'
+#alias vi='vim'
+alias xclip='xclip -selection c'
 alias ping='ping -c 5'
 alias shutdown='sudo shutdown -h now'
 alias reboot='sudo reboot'
 alias pacman="sudo pacman"
+alias powerpill="sudo powerpill"
 alias yaourt="sudo yaourt"
 alias su='su -'
 alias du="du -h"
