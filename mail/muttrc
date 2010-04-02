@@ -10,6 +10,7 @@ set use_from = yes
 set edit_headers = yes  # Allows editing of headers of outgoing messages
 set use_envelope_from = yes
 
+mailboxes "=jasonpoon.ca/[Gmail].All Mail"
 alternates "(ubc.badm@gmail.com)|(*@jasonpoon.ca)"
 
 set header_cache =      ~/.mutt/cache/headers
@@ -28,8 +29,9 @@ set sendmail = "/usr/bin/msmtp"
 
 set move = no           # Move read messages to another folder?
 
-set sort = threads
+set sort = threads 
 set sort_aux = date
+set strict_threads      # don't use Subject for threading
 
 set query_command = "/home/jason/.mail/goobook/contactos.py %s"
 
@@ -37,19 +39,15 @@ set query_command = "/home/jason/.mail/goobook/contactos.py %s"
 bind editor <Tab> complete-query
 bind editor ^T complete
 
-#macro index gi "<change-folder> =INBOX<enter>" "Go to inbox"
-#macro index ga "<change-folder> =[Gmail].All<tab><enter>" "Go to all mail"
 macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
-macro index I "<change-folder> =ubc.badm@gmail.com/INBOX<enter>" "Switch to inbox"
-folder-hook jasonpoon/* 'set from=email@jasonpoon.ca'
-folder-hook email@jasonpoon.ca/* 'macro index I "<change-folder> =ubc.badm@gmail.com/INBOX<enter>" "Switch to ubc.badm inbox"'
-folder-hook ubc.badm@gmail.com/* 'macro index I "<change-folder> =jasonpoon.ca/INBOX<enter>" "Switch to jasonpoon.ca inbox"'
+folder-hook jasonpoon.ca/* 'set from=email@jasonpoon.ca'
+folder-hook jasonpoon.ca/* 'macro index I "<change-folder> =ubc.badm@gmail.com/[Gmail].All<tab><enter>" "Switch to ubc.badm"'
+folder-hook jasonpoon.ca/* 'set status_format="-%r-jasonpoon.ca: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---" 
 
-macro index \e1 ":set from=email@jasonpoon.ca:set status_format=\"-%r-jasonpoon.ca: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---\"\n" "Switch to jasonpoon.ca"
-macro index \e2 ":set from=ubc.badm@gmail.com:set status_format=\"-%r-ubc.badm@gmail.com: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---\"\n" "Switch to ubc.badm@gmail.com"
-folder-hook jasonpoon.ca/* 'push \e1oi<enter>'
-folder-hook ubc.badm@gmail.com/* 'push \e2oi<enter>'
+folder-hook ubc.badm@gmail.com/* 'set from=ubc.badm@gmail.com'
+folder-hook ubc.badm@gmail.com/* 'macro index I "<change-folder> =jasonpoon.ca/[Gmail].All<tab><enter>" "Switch to jasonpoon.ca"'
+folder-hook ubc.badm@gmail.com/* 'set status_format="-%r-ubc.badm@gmail.com: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---"
 
 #------------------------------------------------------------------------------
 # Headers.
