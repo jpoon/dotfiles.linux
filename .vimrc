@@ -84,6 +84,6 @@
     " }
 
     " ctags {
-        set tags=/home/jason/ubc/eece496/nano-RK/tags,/home/jason/ubc/eece496/activity_monitor/tags,tags;/
+        set tags=/home/jason/ubc/eece496/tags,tags;/
         noremap <F5> :!ctags -R .<CR>
     " }
