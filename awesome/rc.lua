@@ -26,16 +26,16 @@ modkey = "Mod4"
 
 layouts =
 {
---    awful.layout.suit.floating,
     awful.layout.suit.tile,
---    awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
+    awful.layout.suit.max,
+--    awful.layout.suit.floating,
+--    awful.layout.suit.tile.left,
 --    awful.layout.suit.fair,
 --    awful.layout.suit.fair.horizontal,
 --    awful.layout.suit.spiral,
 --    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
 --    awful.layout.suit.max.fullscreen,
 --    awful.layout.suit.magnifier
 }
@@ -55,15 +55,12 @@ autorun = true
 autorunApps = 
 { 
     "wicd-client",
-    terminal .. " -name mutt -e mutt",
     terminal .. " -name newsbeuter -e newsbeuter",
---    terminal .. " -name wyrd -e wyrd",
+    terminal .. " -name mutt -e mutt",
+    terminal .. " -name wyrd -e wyrd",
 }    
 
 function run_once(prg)
-    if not prg then
-        do return nil end
-    end
     awful.util.spawn_with_shell("pgrep -u $USER -x " .. prg .. " || (" .. prg .. ")")
 end
 
