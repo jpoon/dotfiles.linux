@@ -48,7 +48,6 @@
 " Vim Behaviour {
     set autoread        " auto read externally modified files
     set nobackup        " no backup files
-    set noswapfile
 
     set history=50      " keep 50 lines of command line history
 " }
@@ -84,6 +83,6 @@
     " }
 
     " ctags {
-        set tags=/home/jason/ubc/eece496/tags,tags;/
+        set tags=tags;/
         noremap <F5> :!ctags -R .<CR>
     " }
