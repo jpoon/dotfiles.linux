@@ -1,2 +1,3 @@
 text/html; firefox %s
 text/plain; vim %s
+image/*; feh -g 640x480 %s
