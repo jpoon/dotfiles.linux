@@ -19,7 +19,7 @@ editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 opacity_focus = 1
-opacity_unfocus = 0.65
+opacity_unfocus = 0.80
 
 -- Default modkey.
 modkey = "Mod4"
