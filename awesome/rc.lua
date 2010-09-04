@@ -57,7 +57,6 @@ autorunApps =
     "wicd-client",
     terminal .. " -name newsbeuter -e newsbeuter",
     terminal .. " -name mutt -e mutt",
-    terminal .. " -name wyrd -e wyrd",
 }    
 
 function run_once(prg)
