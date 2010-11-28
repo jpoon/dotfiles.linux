@@ -31,7 +31,7 @@ type = IMAP
 remotehost = imap.gmail.com
 remoteport = 993
 ssl = yes 
-remoteuser = me@jasonpoon.ca
+remoteuser = email@jasonpoon.ca
 remotepassfile = ~/.mail/password/jasonpoon.ca
 maxconnections = 3
 
