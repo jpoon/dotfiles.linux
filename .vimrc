@@ -1,8 +1,12 @@
+" Pathogen {
+    execute pathogen#infect()
+" }
+
 " Basics {
 	set nocompatible    " no vi compatibility
 
 	syntax on		    " Syntax highlighting on
-    colorscheme wombat
+    "colorscheme wombat
 " }
 
 " General {
