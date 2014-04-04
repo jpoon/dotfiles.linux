@@ -320,19 +320,10 @@ awful.rules.rules = {
                      focus = true,
                      keys = clientkeys,
                      buttons = clientbuttons } },
-    { rule = { class = "MPlayer" },
-      properties = { floating = true } },
-    { rule = { class = "gimp" },
-      properties = { floating = true } },
-    { rule = { class = "Pidgin" },
-      properties = { tag = tags[1][5] } },
-    { rule = { name = "mutt" },
-      properties = { tag = tags[1][6] } },
-    { rule = { name = "newsbeuter" },
-      properties = { tag = tags[1][7] } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+
+    -- Flash with Firefox
+    { rule = { instance = "Plugin-container" },
+      properties = { floating = true, fullscreen = true } }
 }
 -- }}}
 
