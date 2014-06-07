@@ -16,8 +16,9 @@
         set mouse=a			" use mouse 
     endif
 
+    set clipboard=unnamed  " share clipboard
+
 	set fileformats=unix
-    set clipboard=unnamed   " share clipboard
     set ttimeoutlen=100
 
 	set wildmenu		" turn on cmd line completion wild style
