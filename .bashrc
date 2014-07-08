@@ -1,5 +1,5 @@
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+if [ -f /usr/share/bash_completion ]; then
+    . /usr/share/bash_completion
 fi
 
 extract () {
