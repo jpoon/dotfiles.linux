@@ -39,7 +39,7 @@ end
 beautiful.init("/home/jason/.config/awesome/theme.lua")
 
 opacity_focus = 1
-opacity_unfocus = 0.80
+opacity_unfocus = 0.85
 
 browser = "firefox"
 terminal = "urxvt"
