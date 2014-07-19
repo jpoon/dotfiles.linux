@@ -3,43 +3,43 @@
 " }
 
 " Basics {
-	set nocompatible    " no vi compatibility
+    set nocompatible    " no vi compatibility
 
-	syntax on		    " Syntax highlighting on
+    syntax on		    " Syntax highlighting on
     "colorscheme wombat
 " }
 
 " General {
-	set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+    set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 
-	if has('mouse')
+    if has('mouse')
         set mouse=a			" use mouse 
     endif
 
     set clipboard=unnamed  " share clipboard
 
-	set fileformats=unix
+    set fileformats=unix
     set ttimeoutlen=100
 
-	set wildmenu		" turn on cmd line completion wild style
-	set wildignore=*.dll,*.o,*.obj,*.bak,*.swp
+    set wildmenu		" turn on cmd line completion wild style
+    set wildignore=*.dll,*.o,*.obj,*.bak,*.swp
     set wildmode=list:longest,full
 " }
 
 " Vim UI {
-	set cursorline		" highlight current line
+    set cursorline		" highlight current line
     
     " Search {
-	    set hlsearch    " highlighting of search
+        set hlsearch    " highlighting of search
         set ignorecase
         set smartcase 
     " }
    
     set autoindent 
     set wrap
-	set number			" line numbers
-	set showcmd			" show cmd being typed
-	set showmatch		" show matching brace
+    set number			" line numbers
+    set showcmd			" show cmd being typed
+    set showmatch		" show matching brace
     set nostartofline   " preserve column position during motion commands
 
     " Folding {
@@ -91,3 +91,4 @@
         set tags=tags;/
         noremap <F5> :!ctags -R .<CR>
     " }
+" }
