@@ -23,11 +23,7 @@ extract () {
     fi
 }
 
-function svndiff {
-    svn diff "${@}" | colordiff
-}
-
-
+PATH="`ruby -rubygems -e 'puts Gem.user_dir'`/bin:$PATH"
 
 function pu {
    pwd > /tmp/pushd
@@ -128,3 +124,6 @@ case "$TERM" in
     *)
         ;;
 esac
+
+# added by travis gem
+[ -f /home/jason/.travis/travis.sh ] && source /home/jason/.travis/travis.sh
