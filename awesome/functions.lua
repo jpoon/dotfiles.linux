@@ -7,55 +7,37 @@ function setBg(color, text)
     return '<bg color="'..color..'" />'..text
 end
 
--- Battery
-function getBatteryInfo(adapter)
-    local fInfo = io.open("/proc/acpi/battery/"..adapter.."/info")
-    local infoContents = fInfo:read("*all");
-    fInfo:close();
+function getBatteryInfo()
+    fh = assert(io.popen("acpi", "r"))
+    local acpi = fh:read("*l")
+    fh:close()
 
-    local fState = io.open("/proc/acpi/battery/"..adapter.."/state")
-    local stateContents = fState:read("*all");
-    fState:close();
+    local state, percentStr, time
+    _, _, state, percentStr, time = string.find(acpi, "(%w+), (%w+)%%, ([0-9:]+)")
+    print(state)
+    print(percent)
+    print(time)
 
-    local status, _, battPresent, state, rate, current_cap, full_cap
-    status, _, battPresent = string.find(stateContents, "present:%s+(%w+)")
-    status, _, state = string.find(stateContents, "charging state:%s+(%w+)")
-    status, _, rate = string.find(stateContents, "present rate:%s+(%d+).*")
-    status, _, current_cap = string.find(stateContents, "remaining capacity:%s+(%d+).*")
-    status, _, full_cap = string.find(infoContents, "last full capacity:%s+(%d+).*")
-
-    local prefix, time
-
-    if battPresent == "no" then
-        return "AC: " .. setFg("green", "--")
-    else
-        if state == "charged" then
-            return "AC: " .. setFg("green", "100%")
-        elseif state == "charging" then
-            prefix = "AC: "
-            time = (full_cap-current_cap)/rate
-        elseif state == "discharging" then
-            prefix = "Batt: "
-            time = current_cap/rate
-        end
+    local prefix
+    if state == "Charged" then
+        return "AC: " .. setFg("green", "100%")
+    elseif state == "Charging" then
+        prefix = "AC: "
+    elseif state == "Discharging" then
+        prefix = "Batt: "
     end
 
-    time_hour = math.floor(time)
-    time_minute = math.floor((time-time_hour)*60)
-
-    local percent
-    percent = math.floor(current_cap/full_cap*100)
-
+    local percent = tonumber(percentStr)
     if percent < 10 then
-        percentStr = setFg("red", percent .. "%")
+        percentFormatted = setFg("red", percent .. "%")
     elseif percent < 50 then
-        percentStr = setFg("orange", percent .. "%")
+        percentFormatted = setFg("orange", percent .. "%")
     else
-        percentStr = setFg("green", percent .. "%")
+        percentFormatted = setFg("green", percent .. "%")
     end
 
-    return prefix .. percentStr .. " " .. string.format("(%02d:%02d)", time_hour, time_minute)
-end
+    return prefix .. percentFormatted .. " " .. time
+end 
 
 -- Music
 function volume(mode)

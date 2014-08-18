@@ -1,4 +1,4 @@
--- Standard awesome library
+-- {{{ library
 local gears = require("gears")
 local awful = require("awful")
 awful.rules = require("awful.rules")
@@ -8,6 +8,9 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
+
+require("functions")
+-- }}}
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -41,6 +44,7 @@ beautiful.init("/home/jason/.config/awesome/theme.lua")
 opacity_focus = 1
 opacity_unfocus = 0.85
 
+batteryAdapter = "BAT0"
 browser = "firefox"
 terminal = "urxvt"
 editor = os.getenv("EDITOR") or "vim"
@@ -107,6 +111,23 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- text clock
 mytextclock = awful.widget.textclock()
 
+-- battery 
+mybattery = wibox.widget.textbox()
+mybattery:set_markup(getBatteryInfo())
+mybatterytimer = timer({ timeout = 30 })    
+mybatterytimer:connect_signal("timeout", function()
+    mybattery:set_markup(getBatteryInfo())
+end)    
+mybatterytimer:start()
+
+-- spacer
+spacer = wibox.widget.textbox()
+spacer:set_text(" ")
+
+-- separator
+separator = wibox.widget.textbox()
+separator:set_text(" |")
+
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -166,6 +187,7 @@ for s = 1, screen.count() do
                            awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end),
                            awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
+
     -- Create a taglist widget
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
 
@@ -184,6 +206,9 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(spacer)
+    right_layout:add(mybattery)
+    right_layout:add(separator)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
@@ -440,5 +465,5 @@ end)
 -- }}}
 
 -- {{{ Start-Up
-awful.util.spawn("nm-applet &")
+awful.util.spawn("run_once nm-applet")
 -- }}}
