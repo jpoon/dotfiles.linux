@@ -13,13 +13,17 @@ function getBatteryInfo()
     fh:close()
 
     local state, percentStr, time
-    _, _, state, percentStr, time = string.find(acpi, "(%w+), (%w+)%%, ([0-9:]+)")
+    _, _, state = string.find(acpi, "(%w+),")
+    _, _, percentStr = string.find(acpi, "([0-9]+)%%")
+    _, _, time = string.find(acpi, "([0-9:]+) [a-zA-Z ]+$")
+
+    print(acpi)
     print(state)
-    print(percent)
+    print(percentStr)
     print(time)
 
     local prefix
-    if state == "Charged" then
+    if state == "Full" then
         return "AC: " .. setFg("green", "100%")
     elseif state == "Charging" then
         prefix = "AC: "
