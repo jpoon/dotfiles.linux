@@ -23,7 +23,9 @@ function getBatteryInfo()
     print(time)
 
     local prefix
-    if state == "Full" then
+    if state == "Unknown" then
+        return "Unknown"
+    elseif state == "Full" then
         return "AC: " .. setFg("green", "100%")
     elseif state == "Charging" then
         prefix = "AC: "
