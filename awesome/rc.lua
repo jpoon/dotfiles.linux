@@ -45,7 +45,7 @@ opacity_focus = 1
 opacity_unfocus = 0.85
 
 batteryAdapter = "BAT0"
-browser = "firefox"
+browser = "chromium"
 terminal = "urxvt"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor

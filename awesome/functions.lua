@@ -1,16 +1,23 @@
--- Markup functions
-function setFg(color, text)
+local function setFg(color, text)
     return '<span color="'..color..'">'..text..'</span>'
 end
 
-function setBg(color, text)
+local function setBg(color, text)
     return '<bg color="'..color..'" />'..text
+end
+
+local function isEmpty(s)
+    return s == nil or s == ''
 end
 
 function getBatteryInfo()
     fh = assert(io.popen("acpi", "r"))
     local acpi = fh:read("*l")
     fh:close()
+
+    if isEmpty(acpi) then
+        return "AC"
+    end
 
     local state, percentStr, time
     _, _, state = string.find(acpi, "(%w+),")
