@@ -465,5 +465,5 @@ end)
 -- }}}
 
 -- {{{ Start-Up
-awful.util.spawn("run_once nm-applet")
+os.execute("nm-applet &")
 -- }}}
